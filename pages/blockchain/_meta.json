@@ -1,0 +1,21 @@
+{
+  "blockchain_1": "区块链用到了哪些技术",
+  "blockchain_1_1": "什么是区块链",
+  "blockchain_2": "为什么会出现区块链",
+  "blockchain_3": "区块链是怎么产生的，它是否真实存在",
+  "blockchain_4": "区块链的价值是什么",
+  "blockchain_5": "区块链解决了什么痛点",
+  "blockchain_6": "区块链对现在社会的影响是什么",
+  "blockchain_7": "区块链未来可以应用在哪些行业",
+  "blockchain_8": "区块链目前是否有落地项目",
+  "blockchain_9": "区块链技术是否值得学习",
+  "blockchain_10_1": "什么是超级账本",
+  "blockchain_10": "公有链，联盟链、私有链、跨链、侧链是什么意思",
+  "blockchain_11": "什么是以太坊",
+  "blockchain_11_1": "什么是智能合约",
+  "blockchain_11_2": "什么是Defi",
+  "blockchain_12": "共识算法有哪些？Pow、Pos、Dpos、拜占庭都是什么？",
+  "blockchain_12_1": "什么是零知识证明",
+  "blockchain_13": "什么是闪电网络",
+  "blockchain_14": "什么是DAG技术"
+}

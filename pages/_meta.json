@@ -1,7 +1,9 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "index": "介绍",
+  "advanced": "比特币基础",
+  "blockchain": "区块链基础",
+  "exchange": "炒币基础",
+  "godev": "go开发区块链",
   "about": {
     "title": "About",
     "type": "page"
@@ -9,7 +11,7 @@
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://twitter.com/0xkkdemian",
     "newWindow": true
   }
 }

@@ -1,23 +1,191 @@
-# Nextra Docs Template 
+# README
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+新迁移，域名和 gitbook 不能用了。
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+本系列主题将发布在 gitbook 上，托管在[github](https://github.com/chuhemiao/wiki.bsatoshi.blockchain)，并配套思维导图快速了解本主题可以学到什么，完全开源，欢迎大家贡献。
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+[币聪学院区块链课程思维导图](https://cdn.bsatoshi.com/2019/07/06/bitcoin_blockchain.png)
 
-## Quick Start
+## 本主题第一阶段包括：比特币系列文章、区块链系列文章、炒币系列文章
 
-Click the button to clone this repository and deploy it on Vercel:
+1.比特币系列文章主要针对小白用户，对于帮助初次接触比特币的一些理解。
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+2.区块链系列文章主要是区块链的基础、区块链的一些术语、区块链在未来应用的介绍。
 
-## Local Development
+3.炒币的一些工具、交易所、钱包、区块查询、一手媒体消息、买币卖币的流程、炒币术语、作者对炒币的一些认知等
 
-First, run `pnpm i` to install the dependencies.
+## 本主题第二阶段包括：比特币、联盟链、公链开发工具介绍、密码学和共识算法的介绍、侧链和跨链的介绍
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+1.比特币开发系列文章：虚拟机搭建比特币运行环境、比特币交易流程、实战多重签名等
 
-## License
+2.密码学：哈希算法、默克尔树、公匙密码算法、椭圆曲线等
 
-This project is licensed under the MIT License.
+3.共识协议的介绍：拜占庭容错技术、Raft、pow、pos、dpos
+
+4.以太坊、eos 开发环境搭建
+
+5.快速搭建 dapp，并了解 dapp 的运行流程
+
+6.侧链和跨链开发用到的技术
+
+## 本主题第三阶段包括：go 语言开发区块链、dapp 开发、侧链和跨链开发
+
+1.Go 语言快速入门
+
+2.Go 语言开发区块链进阶
+
+3.智能合约 Solidity 语言学习
+
+4.Flutter 学习
+
+5.Flutter 开发区块链钱包实战
+
+6.eth 开发 dapp 实战
+
+7.波卡、cosmos go 语言 sdk 入门开发
+
+### 比特币基础
+
+0.前序
+
+1.什么是比特币
+
+2.为什么会出现比特币
+
+3.比特币是怎么产生的，它是否真实存在
+
+4.什么是挖矿？
+
+5.为什么挖矿可以挖到比特币？
+
+6.除了挖矿还可以怎么得到比特币
+
+7.比特币的价值是什么
+
+8.比特币这么多年是如何运行并未宕机的
+
+9.比特币真的是货币吗？
+
+10.比特币解决了什么痛点
+
+11.比特币对现在社会的影响是什么
+
+12.为什么要持有比特币
+
+13.比特币会有持续的价值吗
+
+14.现实社会的不公平，在比特币的世界存在吗
+
+15.结束语
+
+### 区块链基础
+
+0.前序
+
+1.什么是区块链
+
+1.1 区块链用到了哪些技术
+
+2.为什么会出现区块链
+
+3.区块链是怎么产生的，它是否真实存在
+
+4.区块链的价值是什么
+
+5.区块链解决了什么痛点
+
+6.区块链对现在社会的影响是什么
+
+7.区块链未来可以应用在哪些行业
+
+8.区块链目前是否有落地项目
+
+9.区块链技术是否值得学习
+
+10.公有链，联盟链、私有链、跨链、侧链是什么意思
+
+10.1 什么是超级账本
+
+11.什么是以太坊
+
+11.1 什么是智能合约
+
+11.2 什么是 Defi
+
+12.共识算法有哪些？Pow、Pos、Dpos、拜占庭都是什么？
+
+12.1 什么是零知识证明
+
+13.什么是闪电网络
+
+14.什么是 DAG 技术
+
+## 炒币基础
+
+1.为什么要炒币
+
+2.炒币真的可以财富自由吗？
+
+3.炒币的流程是什么
+
+4.币币交易和 OTC 的区别
+
+5.炒币常用交易所有哪些
+
+6.炒币常用钱包推荐
+
+7.炒币常用工具推荐
+
+8.炒币有哪些媒体值得看
+
+9.炒币有哪些行情分析师可以看
+
+10.怎么查询区块交易
+
+11.怎么判断一个币是好是坏
+
+12.怎么样埋伏百倍币？
+
+13.炒币是投机吗？
+
+14.一个币的基本面要怎么看，怎么识别这个币是否是 cx？
+
+15.定投炒币靠谱吗
+
+16.Pos 和 Defi 可以玩吗？
+
+17.如何当一个合格的矿工？
+
+18.为什么炒币总是卖出就涨，买入就跌？
+
+19.庄是什么、韭菜是什么？
+
+20.币圈有哪些不为人知的黑幕？
+
+21.币圈和链圈的区别
+
+22.币圈有哪些国外的渠道值得关注
+
+23.借钱炒币这事靠谱吗？
+
+## Golang 基础
+
+- [Go 语言基础入门课程](go_basic.md)
+- [Golang 快速搭建开发环境](go_basic_env.md)
+- [Golang 基础语法](go_basic_program.md)
+- [Golang 基础之编码规范](go_basic_code_rule.md)
+- [Golang 基础之接口](go_basic_interface.md)
+- [Golang 基础之错误处理](go_basic_error.md)
+- [Golang 基础之 json](go_basic_json.md)
+- [Golang 基础之如何使用 Go Module 和 Go proxy](go_mod_proxy.md)
+- [Go 语言基础常用包](go_package.md)
+- [Go 语言之 channel](go_channel.md)
+- [Go 语言之 select 用法](go_select.md)
+- [细说 Go 语言之 Goroutine](go_routine.md)
+- [Go 语言实现 pos 协议](go_pos.md)
+- [Go 语言实现 dpos 协议](go_dpos.md)
+- [Go 语言实现 raft 协议](go_raft.md)
+- [Go 语言实现 pbft 协议](go_pbft.md)
+- [Go 语言系列课程之 solidity 语法入门](go_solidity_summer.md)
+- [Go 语言高级课程](go_expert.md)
+- [Go 语言开发区块链实战](go_expert.md)
