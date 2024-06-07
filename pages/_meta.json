@@ -4,6 +4,7 @@
   "blockchain": "区块链基础",
   "exchange": "炒币基础",
   "godev": "go开发区块链",
+  "guide": "撸毛和节点教程",
   "about": {
     "title": "About",
     "type": "page"
