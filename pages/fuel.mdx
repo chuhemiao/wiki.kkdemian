@@ -1,0 +1,78 @@
+# 2024 最新 fuel 运行节点指南
+
+1.下载，curl https://install.fuel.network | sh
+
+2.输入 y，
+
+3.设置链和安装测试网：
+
+`fuelup toolchain install testnet`
+
+`fuelup default testnet`
+
+4.设置环境变量为全局：`export PATH="${HOME}/.fuelup/bin:${PATH}"`, 检查是否安装成功： fuelup --version fuel-core --version
+
+如果成功会出现：`fuel-core 0.26.0`
+
+5.使用 https://www.alchemy.com/ 创建一个 dapp，选择测试网络 Sepolia 。
+
+6.使用命令生成一个 p2p 的 key，记得保存下来，`fuel-core-keygen new --key-type peering`
+
+7.克隆 chain 的配置，使用命令：`git clone https://github.com/FuelLabs/chain-configuration.git` 后面会用到这个文件夹
+
+8.运行启动命令：修改 P2P_PRIVATE_KEY 为上一步生成的 key， ETHEREUM_RPC_ENDPOINT 改为 alchemy 的 https 节点
+
+```
+fuel-core run \
+--service-name=fuel-sepolia-testnet-node \
+--keypair {P2P_PRIVATE_KEY} \
+--relayer {ETHEREUM_RPC_ENDPOINT} \
+--ip=0.0.0.0 --port=4000 --peering-port=30333 \
+--db-path=~/.fuel-sepolia-testnet \
+--snapshot /root/chain-configuration/ignition/ \
+--utxo-validation --poa-instant false --enable-p2p \
+--reserved-nodes /dns4/p2p-testnet.fuel.network/tcp/30333/p2p/16Uiu2HAmDxoChB7AheKNvCVpD4PHJwuDGn8rifMBEHmEynGHvHrf \
+--sync-header-batch-size 100 \
+--enable-relayer \
+--relayer-v2-listening-contracts=0x01855B78C1f8868DE70e84507ec735983bf262dA \
+--relayer-da-deploy-height=5827607 \
+--relayer-log-page-size=500 \
+--sync-block-stream-buffer-size 30
+```
+
+运行成功后，会看到输出的节点信息，等待一段时间后会有区块同步：
+
+```
+Jun 07 02:33:49 ddddz fuel-core[2558411]: 2024-06-07T01:33:49.200804Z  INFO new{name=chuhemiao}:initialize_loop{service="P2P"}: fuel_core_p2p::p2p_service: 430: Listening for p2p traffic on `/ip4/45.146.6.133/tcp/30333`
+Jun 07 02:33:49 ddddz fuel-core[2558411]: 2024-06-07T01:33:49.200821Z  INFO new{name=chuhemiao}:initialize_loop{service="P2P"}: fuel_core_p2p::p2p_service: 430: Listening for p2p traffic on `/ip4/172.17.0.1/tcp/30333`
+Jun 07 02:33:49 ddddz fuel-core[2558411]: 2024-06-07T01:33:49.200831Z  INFO new{name=chuhemiao}:initialize_loop{service="P2P"}: fuel_core_p2p::p2p_service: 430: Listening for p2p traffic on `/ip4/172.18.0.1/tcp/30333`
+Jun 07 02:33:49 ddddz fuel-core[2558411]: 2024-06-07T01:33:49.200836Z  INFO new{name=chuhemiao}:initialize_loop{service="P2P"}: fuel_core_p2p::p2p_service: 430: Listening for p2p traffic on `/ip4/172.19.0.1/tcp/30333`
+Jun 07 02:33:49 ddddz fuel-core[2558411]: 2024-06-07T01:33:49.200849Z  INFO new{name=chuhemiao}:initialize_loop{service="SyncTask"}: fuel_core_services::service: 321: Starting SyncTask service
+Jun 07 02:33:49 ddddz fuel-core[2558411]: 2024-06-07T01:33:49.200855Z  INFO new{name=chuhemiao}:initialize_loop{service="ImportTask"}: fuel_core_services::service: 321: Starting ImportTask service
+Jun 07 02:33:49 ddddz fuel-core[2558411]: 2024-06-07T01:33:49.200892Z  INFO new{name=chuhemiao}:initialize_loop{service="GraphQL_Off_Chain_Worker"}: fuel_core_services::service: 321: Starting GraphQL_Off_Chain_Worker service
+Jun 07 02:37:39 ddddz fuel-core[2558411]: 2024-06-07T01:37:39.826548Z  INFO new{name=chuhemiao}:initialize_loop{service="Relayer"}: fuel_core_relayer::service::get_logs: 38: Downloading logs for block range: 6054793..=6054824
+Jun 07 02:44:04 ddddz fuel-core[2558411]: 2024-06-07T01:44:04.855526Z  INFO new{name=chuhemiao}:initialize_loop{service="Relayer"}: fuel_core_relayer::service::get_logs: 38: Downloading logs for block range: 6054825..=6054856
+```
+
+然后退出这个进程，ctrl+c 退出，然后使用 /etc/systemd/system/fuel-core.service 监控服务，使用下面的命令进行设置，需要修改对应的信息！！！
+
+```
+sudo tee <<EOF >/dev/null /etc/systemd/system/fuel-core.service
+[Unit]
+Description=fuel-core
+After=network-online.target
+[Service]
+User=root
+ExecStart=/root/.fuelup/bin/fuel-core run --service-name 你的节点名字 --keypair  前面p2p生成的key  --relayer https://eth-sepolia.g.alchemy.com/v2/你的alchemy密钥 --ip 0.0.0.0 --port 4000 --peering-port 30333 --db-path  ~/.testnet --utxo-validation --poa-instant false --enable-p2p --min-gas-price 1 --max-block-size 18874368  --max-transmit-size 18874368 --reserved-nodes /dns4/p2p-devnet.fuel.network/tcp/30333/p2p/16Uiu2HAm6pmJUedRFjennk4A8yWL6zCApHCuykzRRroqMjjxZ8o6,/dns4/p2p-devnet.fuel.network/tcp/30334/p2p/16Uiu2HAm8dBwTRzqazCMqQDdR8thMa7BKiW4ep2B4DoQQp6Qhyfd  --sync-header-batch-size 100 --enable-relayer --relayer-v2-listening-contracts 0x01855B78C1f8868DE70e84507ec735983bf262dA --relayer-da-deploy-height 5827607 --relayer-log-page-size 2000
+[Install]
+WantedBy=multi-user.target
+ EOF
+```
+
+设置成功后，运行后台运行命令 `sudo systemctl enable fuel-core`
+
+启动节点：`sudo systemctl start fuel-core`
+
+检查是否启动成功： `sudo systemctl status fuel-core`
+
+查看执行的日志： `sudo journalctl -u fuel-core.service -f`
