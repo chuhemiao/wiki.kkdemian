@@ -1,6 +1,6 @@
 # 2024 最新 fuel 运行节点指南
 
-1.下载，curl https://install.fuel.network | sh
+1.下载，curl <https://install.fuel.network> | sh
 
 2.输入 y，
 
@@ -14,15 +14,15 @@
 
 如果成功会出现：`fuel-core 0.26.0`
 
-5.使用 https://www.alchemy.com/ 创建一个 dapp，选择测试网络 Sepolia 。
+5.使用 <https://www.alchemy.com/> 创建一个 dapp，选择测试网络 Sepolia 。
 
 6.使用命令生成一个 p2p 的 key，记得保存下来，`fuel-core-keygen new --key-type peering`
 
 7.克隆 chain 的配置，使用命令：`git clone https://github.com/FuelLabs/chain-configuration.git` 后面会用到这个文件夹
 
-8.运行启动命令：修改 P2P_PRIVATE_KEY 为上一步生成的 key， ETHEREUM_RPC_ENDPOINT 改为 alchemy 的 https 节点
+8.运行启动命令：修改 `P2P_PRIVATE_KEY` 为上一步生成的 key， ETHEREUM_RPC_ENDPOINT 改为 alchemy 的 https 节点
 
-**提示：{P2P_PRIVATE_KEY}，{ETHEREUM_RPC_ENDPOINT} 这里不需要{} 直接输入 key 和 url 地址**
+**提示：`{P2P_PRIVATE_KEY}，{ETHEREUM_RPC_ENDPOINT} 这里不需要{} 直接输入 key 和 url 地址`**
 
 ```
 fuel-core run \
@@ -56,7 +56,7 @@ Jun 07 02:37:39 ddddz fuel-core[2558411]: 2024-06-07T01:37:39.826548Z  INFO new{
 Jun 07 02:44:04 ddddz fuel-core[2558411]: 2024-06-07T01:44:04.855526Z  INFO new{name=chuhemiao}:initialize_loop{service="Relayer"}: fuel_core_relayer::service::get_logs: 38: Downloading logs for block range: 6054825..=6054856
 ```
 
-然后退出这个进程，ctrl+c 退出，然后使用 /etc/systemd/system/fuel-core.service 监控服务，使用下面的命令进行设置，需要修改对应的信息！！！
+然后退出这个进程，`ctrl+c` 退出，然后使用 `/etc/systemd/system/fuel-core.service` 监控服务，使用下面的命令进行设置，需要修改对应的信息！！！
 
 ```
 sudo tee <<EOF >/dev/null /etc/systemd/system/fuel-core.service
