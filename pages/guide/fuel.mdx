@@ -1,6 +1,6 @@
 # 2024 最新 fuel 运行节点指南
 
-1.下载，curl <https://install.fuel.network> | sh
+1.下载，`curl <https://install.fuel.network> | sh`
 
 2.输入 y，
 
@@ -10,11 +10,11 @@
 
 `fuelup default testnet`
 
-4.设置环境变量为全局：`export PATH="${HOME}/.fuelup/bin:${PATH}"`, 检查是否安装成功： fuelup --version fuel-core --version
+4.设置环境变量为全局：`export PATH="${HOME}/.fuelup/bin:${PATH}"`, 检查是否安装成功： `fuelup --version fuel-core --version`
 
 如果成功会出现：`fuel-core 0.26.0`
 
-5.使用 <https://www.alchemy.com/> 创建一个 dapp，选择测试网络 Sepolia 。
+5.使用 `<https://www.alchemy.com/>` 创建一个 dapp，选择测试网络 Sepolia 。
 
 6.使用命令生成一个 p2p 的 key，记得保存下来，`fuel-core-keygen new --key-type peering`
 
